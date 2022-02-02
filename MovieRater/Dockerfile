@@ -2,7 +2,7 @@
 FROM python:latest
 
 # set work directory
-WORKDIR /usr/src/app
+WORKDIR /django
 
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -10,11 +10,11 @@ ENV PYTHONUNBUFFERED 1
 
 # install dependencies
 RUN pip install --upgrade pip
-COPY ./requirements.txt /usr/src/app
+COPY ./requirements.txt /django
 RUN pip install -r requirements.txt
 
 # copy project
-COPY . /usr/src/app
+COPY . /django
 
 EXPOSE 8000
 
