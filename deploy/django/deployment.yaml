@@ -16,12 +16,28 @@ spec:
     spec:
       containers:
         - name: django
-          image: whisky973/django_api:v1.1
+          image:  whisky973/django_api:v1.1
           ports:
             - containerPort: 8000
+          env:
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: user
+
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: password
+
+            - name: POSTGRES_HOST
+              value: postgres-service
 
 
 ---
+
 kind: Service
 apiVersion: v1
 metadata:
