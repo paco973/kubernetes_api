@@ -16,6 +16,6 @@ RUN pip install -r requirements.txt
 # copy project
 COPY . /django
 
-EXPOSE 8000
+EXPOSE 4242
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:4242"]
